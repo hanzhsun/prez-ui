@@ -3,7 +3,7 @@ name: Build & push Storybook & Prez UI demo site to AWS
 on:
   push:
     branches:
-      - next
+      - hjohns/next/widgets
   workflow_dispatch:
 
 jobs:

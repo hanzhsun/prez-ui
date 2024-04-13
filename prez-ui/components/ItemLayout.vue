@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PrezUINode, CopyButton } from "prez-components";
+import { PrezUINode, CopyButton, CustomCitation } from "prez-components";
 import type { ProfileHeader, PrezItem } from "prez-lib";
 import Message from "primevue/message";
 import Skeleton from "primevue/skeleton";
@@ -37,6 +37,9 @@ const tableData = computed(() => {
                     <Skeleton width="30rem" class="mb-2" style="margin-bottom: 12px"></Skeleton>
                 </template>
                 <template v-else-if="props.data">
+                    <div style="float:right;">
+                        <CustomCitation :focusNode="props.data?.focusNode" :properties="props.data?.properties" />
+                    </div>
                     <h1>{{ props.data.focusNode.label?.value || props.data.focusNode.value }}</h1>
                     <div class="flex-row" style="margin-bottom: 8px">Type: <div class="types"><PrezUINode v-for="t in props.data.focusNode.rdfTypes" v-bind="t" badge :showProv="false" :showType="false" /></div></div>
                     <div class="flex-row">IRI: <div class="iri"><a :href="props.data.focusNode.value" target="_blank" rel="noopener noreferrer">{{ props.data.focusNode.value }}</a><CopyButton :value="props.data.focusNode.value" iconOnly /></div></div>

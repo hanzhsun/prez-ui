@@ -25,6 +25,6 @@ export const HIDDEN_PREDICATES: string[] = [
     "http://www.w3.org/2004/02/skos/core#hasTopConcept",
     // system predicates
     "https://prez.dev/link",
-    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-    "http://purl.org/dc/terms/identifier",
+    "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    //"http://purl.org/dc/terms/identifier"
 ];

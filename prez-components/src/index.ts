@@ -9,6 +9,7 @@ import PrezUITerm from "./components/PrezUITerm.vue";
 import PrezUINode from "./components/PrezUINode.vue";
 import PrezUILiteral from "./components/PrezUILiteral.vue";
 import PrezUIBlankNode from "./components/PrezUIBlankNode.vue";
+import CustomCitation from './custom-components/CustomCitation.vue';
 
 export * from "./types";
 
@@ -20,4 +21,5 @@ export {
     PrezUINode,
     PrezUILiteral,
     PrezUIBlankNode,
+    CustomCitation
 };

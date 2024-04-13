@@ -1,6 +1,19 @@
 // to be moved to prez-lib
 
-import { PrezLiteral, PrezNode } from "prez-lib";
+import { PrezLiteral, PrezNode, PrezTerm, node, PrezProperties } from "prez-lib";
+
+export type SimpleProperties = Record<string, PrezTerm|PrezTerm[]|string>;
+
+export function setProperties(properties: SimpleProperties) {
+    const prezProperties:PrezProperties = {};
+    for(const pred in properties) {
+        const terms:PrezTerm[] = typeof properties[pred] == 'string' ? 
+            [node(properties[pred] as string)] : 
+            (Array.isArray(properties[pred]) ? properties[pred] as PrezTerm[] : [properties[pred] as PrezTerm]);
+        prezProperties[pred] = { predicate: node(pred), objects: terms}
+    }
+    return prezProperties;
+}
 
 export function sortLiterals(a: PrezLiteral, b: PrezLiteral, direction: "asc" | "desc" = "asc"): number {
     return direction === "asc" ? a.value.localeCompare(b.value) : b.value.localeCompare(a.value);

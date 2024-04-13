@@ -17,7 +17,7 @@ const firstTruthy = (...args: any[]): any => args.find(Boolean);
         Open Geospatial Consortium, 
         <em>{{ propertyValue(properties['http://purl.org/dc/terms/title']) }}</em> 
         (<em>{{ propertyValue(properties['http://purl.org/dc/terms/identifier'], 'http://www.opengis.net/def/metamodel/ogc-na/doc_no') }}</em>) 
-        ({{ propertyValue(properties['http://purl.org/dc/terms/created']) }}).
+        ({{ propertyValue(properties['http://purl.org/dc/terms/created']).toString().split('-')[0] }}).
         OGC {{ propertyValue(properties['https://www.opengis.net/def/metamodel/ogc-na/doctype']) }}, 
         Eds. {{ propertyValue(properties["http://purl.org/dc/terms/creator"]) }}. 
         {{ firstTruthy(

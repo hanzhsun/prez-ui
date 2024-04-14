@@ -6,19 +6,6 @@ import { setProperties } from "../util/helpers";
 
 type CitationInputFields = Record<CitationFields, string|PrezTerm[]>
 
-        //{
-
-    // title: { description: "Doc Title", value: "object"},
-    // docId: { description: "Doc Id", value: "string"},
-    // year: { description: "Year", value: "number"},
-    // docType: { description: "Doc Type", value: "string"},
-    // // 'https://www.opengis.net/def/metamodel/ogc-na/doctype': 
-    // //     { description: "Doc Type", value: "string"},
-    // creatorNames: { description: "Creator Names", value: "string"},
-    // url: { description: "url", value: "string"},
-    // doi: { description: "doi", value: "string"},
-        //}
-
 const argTypeProps:Record<CitationFields, object> = {
     "http://purl.org/dc/terms/creator": { description: "Creator Names"},
     "https://www.opengis.net/def/metamodel/ogc-na/doctype": { description: "Doc Type"},
@@ -37,26 +24,6 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
-
-// export const Default: Story = {
-//     render: (args)=> ({
-//         components: { CustomCitation },
-//         setup() {
-//             return {args}
-//         },
-//         template: `<CustomCitation :properties="args"></CustomCitation>`
-//     }),
-//     args:  {
-//         properties: {
-//             title: "Sensor Collection Service",
-//             docId: "02-028",
-//             year: 2002,
-//             docType: "Interoperability Program Report",
-//             creatorNames: "Tom McCarthy",
-//             url: "http://www.opengis.net/def/docs/02-028",
-//         }
-//     }
-// };
 
 export const WithoutDOI: Story = {
     args:  {
@@ -109,15 +76,3 @@ export const WithNoDocNo: Story = {
     }
 };
 
-
-// export const WithDOI: Story = {
-//     args:  {
-//         title: "Sensor Collection Service",
-//         docId: "02-028",
-//         year: 2002,
-//         docType: "Interoperability Program Report",
-//         creatorNames: "Tom McCarthy",
-//         url: "http://www.opengis.net/def/docs/02-028",
-//         doi: "https://doi.org/ogc-00-029"
-//     }
-// };

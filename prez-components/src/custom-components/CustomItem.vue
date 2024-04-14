@@ -1,13 +1,9 @@
 <script lang="ts" setup>
-import { PrezProperty, PrezLiteral, PrezNode } from 'prez-lib';
+import { PrezNode } from 'prez-lib';
 import type { ItemProperties } from './CustomItem';
 import PrezUITerm from '../components/PrezUITerm.vue';
 import CopyButton from "../components/CopyButton.vue";
 const props = defineProps<{focusNode: PrezNode, properties: ItemProperties}>();
-
-const propertyValue = (property:PrezProperty|undefined, dataType?:string) => 
-    property?.objects?.filter(obj => !dataType || (obj.termType == "Literal" && dataType == (obj as PrezLiteral).datatype?.value))
-    .map(obj => obj.value).join(', ') || "";
 
 </script>
 

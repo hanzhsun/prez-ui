@@ -19,7 +19,7 @@ const props = defineProps<{focusNode: PrezNode, properties: ItemProperties}>();
         </div>
 
         <div v-if="props.properties?.['http://purl.org/dc/terms/isPartOf']" class="flex-row">
-            <div>Defined By: </div>
+            <div v-tooltip="'Custom tooltip here...'">Defined By: </div>
             <PrezUITerm 
                 v-for="o in props.properties['http://purl.org/dc/terms/isPartOf'].objects"
                 v-bind="o"

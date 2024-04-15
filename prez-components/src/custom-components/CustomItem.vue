@@ -18,11 +18,18 @@ const props = defineProps<{focusNode: PrezNode, properties: ItemProperties}>();
             </div>
         </div>
 
-        <div class="flex-row">
-            <div>Defined by: </div>
+        <div v-if="props.properties?.['http://purl.org/dc/terms/isPartOf']" class="flex-row">
+            <div>Defined By: </div>
             <PrezUITerm 
-                v-if="props.properties?.['http://purl.org/dc/terms/isPartOf']" 
                 v-for="o in props.properties['http://purl.org/dc/terms/isPartOf'].objects"
+                v-bind="o"
+            />
+        </div>
+
+        <div v-if="props.properties?.['http://www.opengis.net/def/metamodel/ogc-na/doctype']" class="flex-row">
+            <div>Sub-type: </div>
+            <PrezUITerm
+                v-for="o in props.properties['http://www.opengis.net/def/metamodel/ogc-na/doctype'].objects"
                 v-bind="o"
             />
         </div>

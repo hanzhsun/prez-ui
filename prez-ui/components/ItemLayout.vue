@@ -60,7 +60,7 @@ function filterDocumentProps(properties?: PrezProperties) {
                 </div>
                 <CustomItem :focusNode="props.data?.focusNode" :properties="props.data?.properties"></CustomItem>
                 <slot></slot>
-                <PrezUIObjectTable :data="{...tableData, properties: filterDocumentProps(tableData?.properties)}" :key="Object.keys(props.data?.properties || {}).length" :loading="props.loading" />
+                <PrezUIObjectTable :data="{...tableData, members: undefined, properties: filterDocumentProps(tableData?.properties)}" :key="Object.keys(props.data?.properties || {}).length" :loading="props.loading" />
                 <br/>
 
                 <img v-tooltip="'Widgets can be used to output custom diagrams'" src="/diagram.png" style="width:500px;"/>

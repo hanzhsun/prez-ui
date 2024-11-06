@@ -320,13 +320,16 @@ function getIRILocalName(iri: string) {
 }
 
 async function getChildren() {
+    console.log('getChildren')
     if (item.value.baseClass === qnameToIri("skos:ConceptScheme")) {
+        console.log(item.value)
         if (hasFewChildren.value) {
             getAllConcepts();
         } else {
             getTopConcepts();
         }
     } else {
+        console.log(store.value)
         store.value.forObjects(obj => {
             let child: ListItemExtra = {
                 iri: obj.id,
@@ -360,6 +363,8 @@ async function getChildren() {
         }, namedNode(item.value.iri), namedNode(childrenPredicate.value), null);
 
         // sort by title, then by IRI
+        console.log(children.value)
+        console.log(children.value.sort())
         children.value.sort(sortByTitle);
     }
 }
@@ -434,6 +439,7 @@ async function getAllConcepts() {
 
 async function getTopConcepts(page: number = 1) {
     conceptClearStore();
+    console.log('getTopConcepts')
     const { data } = await conceptApiGetRequest(`${route.path}/top-concepts?page=${page}&per_page=${conceptPerPage}`);
     if (data && !conceptError.value) {
         conceptParseIntoStore(data);
@@ -448,6 +454,8 @@ async function getTopConcepts(page: number = 1) {
                 color: "",
             };
             
+            console.log(object.value)
+            console.log(conceptStore.value)
             c.title = getLabel(object.value, conceptStore.value);
 
             conceptStore.value.forEach(q => {
